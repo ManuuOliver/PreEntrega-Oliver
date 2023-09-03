@@ -14,6 +14,7 @@ const precioMinimo = 0;
 function seleccionCuadro(cuadro){
     cuadro = prompt("¿Que cuadro deseas comprar?");
     switch(cuadro){
+        //En este switch tenemos la lista de los cuadros y dependiendo de cual queremos nos suma su precio
         case "cuadroblanco":
             precio = precio + 500;
             break;
