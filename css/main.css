@@ -2,7 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+}
+.main{
+    padding-top: 110px;
 }
 a{text-decoration: none;}
 ul{list-style: none;}
@@ -13,13 +20,22 @@ ul{list-style: none;}
 
 /* HEADER */
 .header{
+    position: fixed;
     display: flex;
+    height: 110px;
     text-align: center;
     flex-direction: column;
+    align-items: center;
     width: 100%;
+    padding: 10px 0px;
     background-color: #8A9A5B;
 }
+.header-icon img{
+    height: 50px;
+
+}
 .header-hero a{
+    display: none;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -36,11 +52,15 @@ ul{list-style: none;}
     text-align: center;
 }
 .header-nav ul li{
-    padding: 0px 10px;
+    padding: 0px 15px;
+    font-weight: bold;
 }
 .header-nav a{
     text-align: center;
     color: white;
+}
+.header-nav a:hover{
+    color: #5c663d;
 }
 
 
@@ -62,7 +82,7 @@ ul{list-style: none;}
 
 .section-images .pictures{
     width: 90%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: center;
 }
 .pictures h3{
@@ -96,5 +116,23 @@ ul{list-style: none;}
     height: 100%;
     padding: 15px;
     background-color: rgba(209, 14, 14, 0.671);
+}
+
+@media (min-width: 1024px){
+    .header{
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .header-hero a{
+        display: inline-block;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+    }
+    .section-images{
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
 }
 
