@@ -1,77 +1,45 @@
-///CARRITO DE COMPRA
 
-/*
-La idea es hacer una tienda de venta de cuadros, que pueda
-sumar los precios y luego a la hora de pagar que nos pregunte
-con que queremos pagar.
+const cuadros = [
+    {nombre: "cuadroverde", precio: 500},
+    {nombre: "cuadroazul", precio: 550},
+    {nombre: "cuadroblanco", precio: 600},
+    {nombre: "cuadrorojo", precio: 1250},
+];
 
-*/
+const detalleFactura = [];
 
+let opcion;
+let salir;
+let total = 0;
+let cantidad;
 
-let nombre, respuesta, cuadro, precio = 0;
-const precioMinimo = 0;
-//Funcion para elegir que cuadro quiere comprar  se le sume el precio del cuadro seleccionado
-function seleccionCuadro(cuadro){
-    cuadro = prompt("¿Que cuadro deseas comprar?");
-    switch(cuadro){
-        //En este switch tenemos la lista de los cuadros y dependiendo de cual queremos nos suma su precio
-        case "cuadroblanco":
-            precio = precio + 500;
-            break;
-        case "cuadrorojo":
-            precio = precio + 350;
-            break;
-        case "cuadroazul":
-            precio = precio + 550;
-            break;
-        case "cuadroverde":
-            precio = precio + 730;
-            break;
-        default:
-            alert("No tenemos ese cuadro!");
-    }
-    if(precio > precioMinimo){alert(`El precio de tu carrito es de ${precio}$`);}
+function menuDeTienda(){
+    alert("Bienvenido a la tienda de cuadros");
+    do{ 
+        const listaStringCuadros = cuadros.map((producto, index) => 
+            `${index + 1} - ${producto.nombre} ${producto.precio}`);
+            opcion = prompt(`Que cuadro desea elegir? \n ${listaStringCuadros.join(`\n`)}`);
+
+            while(isNaN(opcion) || opcion == undefined || opcion > cuadros.length || opcion <= 0){
+                opcion = prompt(`Que cuadro desea elegir? \n ${listaStringCuadros.join(`\n`)}`);
+            }
+
+        cantidad = prompt(`Ingrese la cantidad: `);
+            while(cantidad < 0 || cantidad == undefined || isNaN(cantidad)){
+                cantidad = prompt(`Ingrese la cantidad: `);
+            }
+    
+        detalleFactura.push(new itemFactura(cuadros[opcion-1].nombre,cuadros[opcion-1].precio,cantidad));
+    
+        salir = prompt(`Desea salir? si/no`);
+    
+    
+    }while(salir != "si");
 }
-//Funcion para seleccionar le metodo de pago
-function medioDePago(opcion){
-    switch(opcion){
-        case 1:
-            tarjeta = prompt(`Ingrese el numero de la tarjeta:`);
-            caducidad = prompt(`Ingrese fecha de caducidad`);
-            cvv = prompt(`Ingrese codigo CVV`);
-            alert("Pago completo!");
-            break;
-        case 2:
-            alert(`Enviando ${precio}$ a Venta.De.Cuadros`);
-            alert("Pago completo!");
-            break;
-        case 3:
-            alert("Enviando bitcoin a wallet de Cuadros.com");
-            alert("Pago completo!");
-            break;
-        default:
-            alert("Medio de pago invalido");
-        
-    }
+function totalPrecio(){
+    total = detalleFactura.reduce((acumulador,item) => acumulador + item.subtotal,0);
+    alert(`El total a apagar es de ${total}`);
 }
-//Bienvenida a la pagina
-    nombre = prompt("Bienvenido! Ingrese su nombre de usuario");
-    respuesta = prompt(`Bienvenido ${nombre} a nuestra tienda, te intereza comprar algun cuadro? si/no`);
 
-    while(respuesta == "si"){
-    seleccionCuadro(cuadro);
-    respuesta = prompt("¿Quieres seguir comprando?");
-}
-//Si el precio no supera los 0$ no va a preguntar con que desea pagar
-if(precio > precioMinimo){
-        opcion = +prompt(`Con que desea pagar? \n
-        1) Terjeta \n
-        2) transferencia \n
-        3) Wallet`);
-        medioDePago(opcion);
-    }
-
-if(respuesta != "no"){
-        alert("Error");
-    }else (alert("Gracias por pasarte!"));
-
+menuDeTienda();
+totalPrecio();
