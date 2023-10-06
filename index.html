@@ -49,14 +49,41 @@
                     <h3>Cuadro Rojo</h3>
                 </div>
             </section>
+            <section class="container">
+                <div class="product-selection">
+                    <select id="productos">
+                    </select>
+                    <button id="agregar">Agregar al Carrito</button>
+                </div>
+                <div class="cart">
+                    <h2>Carrito de Compras</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Total</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="items">
+                        </tbody>
+                    </table>
+                    <p>Total: $<span id="total">0</span></p>
+                    <button id="limpiar-carrito">Limpiar Carrito</button>
+                </div>
+            </section>
     
         </main>
         <footer>
     
         </footer>
     </div>
-    <script src="js/cuadros.js"></script>
-    <script src="js/itemFactura.js"></script>
-    <script src="js/app.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/Producto.js"></script>
+    <script src="js/Item.js"></script>
+    <script src="js/carrito.js"></script>
+    </body>
 </html>

@@ -10,6 +10,10 @@ html{
 }
 .main{
     padding-top: 110px;
+    background-color: #DCDCDC;
+    background-image: url(../img/89210.png);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 a{text-decoration: none;}
 ul{list-style: none;}
@@ -66,10 +70,6 @@ ul{list-style: none;}
 
 /*SECTION IMAGES */
 .section-images{
-    background-color: #DCDCDC;
-    background-image: url(../img/89210.png);
-    background-size: cover;
-    background-repeat: no-repeat;
     padding: 30px 0px;
     display: grid;
     gap: 30px;
@@ -117,6 +117,90 @@ ul{list-style: none;}
     padding: 15px;
     background-color: rgba(209, 14, 14, 0.671);
 }
+
+/* ----------------------------- LISTA DE COMPRA ----------------------------- */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #8A9A5B;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-selection {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.product-selection select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.product-selection button {
+    background-color: #5bbd6b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.cart {
+    flex: 2;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #5bbd6b;
+    color: #fff;
+}
+
+#total {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#limpiar-carrito {
+    background-color: #6328cf;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
 
 @media (min-width: 1024px){
     .header{
